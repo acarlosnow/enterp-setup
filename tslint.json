@@ -1,8 +1,16 @@
 {
+  "extends": [
+    "rxjs-tslint-rules"
+  ],
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "tslint-consistent-codestyle"
   ],
   "rules": {
+    "rxjs-no-add": { "severity": "error" },
+    "rxjs-no-operator": { "severity": "error" },
+    "rxjs-no-patched": { "severity": "error" },
+    "rxjs-no-wholesale": { "severity": "error" },
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -19,7 +27,8 @@
     "import-blacklist": [
       true,
       "rxjs",
-      "rxjs/Rx"
+      "rxjs/Rx",
+      "lodash"
     ],
     "import-spacing": true,
     "indent": [
@@ -30,7 +39,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      200
     ],
     "member-access": false,
     "member-ordering": [
@@ -60,10 +69,7 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
@@ -107,8 +113,8 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
-    "variable-name": false,
     "whitespace": [
       true,
       "check-branch",
@@ -138,6 +144,12 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "naming-convention": [
+      true,
+      {"type": "member", "modifiers": "protected", "leadingUnderscore": "forbid"},
+      {"type": "member", "modifiers": "private", "leadingUnderscore": "forbid"},
+      {"type": "method", "format": "camelCase"}
+    ]
   }
 }
