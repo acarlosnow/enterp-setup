@@ -84,10 +84,12 @@
     "webpack-bundle-analyzer": "^2.11.1"
   },
   "lint-staged": {
-    "*.{ts,html}": [
+    "*.ts": [
       "tslint --project tsconfig.json --fix",
-      "ng build",
       "git add"
+    ],
+    "*.{html,ts}": [
+      "ng build"
     ]
   }
 }
