@@ -86,7 +86,7 @@
   "lint-staged": {
     "*.{ts,html}": [
       "tslint --project tsconfig.json --fix",
-      "npm run build",
+      "ng build",
       "git add"
     ]
   }
