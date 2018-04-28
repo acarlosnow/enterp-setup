@@ -87,6 +87,7 @@
   },
   "lint-staged": {
     "*.{ts,scss,json}": ["prettier --write", "git add"],
+    "*.ts": ["tslint --project tsconfig.json --fix", "git add"],
     "*.{html,ts}": ["ng build"]
   }
 }
