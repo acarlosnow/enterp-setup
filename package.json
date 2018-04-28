@@ -6,24 +6,26 @@
     "ng": "ng",
     "start": "ng serve --app=app --proxy-config proxy.conf.json",
     "build": "ng build --prod --app=app",
-    "analyze:bundles": "ng build --prod --stats-json --app=app && webpack-bundle-analyzer dist/apps/app/stats.json",
+    "analyze:bundles":
+      "ng build --prod --stats-json --app=app && webpack-bundle-analyzer dist/apps/app/stats.json",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",
-    "affected:apps": "./node_modules/.bin/nx affected apps",
-    "affected:build": "./node_modules/.bin/nx affected build",
-    "affected:e2e": "./node_modules/.bin/nx affected e2e",
-    "affected:dep-graph": "./node_modules/.bin/nx affected dep-graph",
-    "format": "./node_modules/.bin/nx format write",
-    "format:write": "./node_modules/.bin/nx format write",
-    "format:check": "./node_modules/.bin/nx format check",
+    "affected:apps": "./node_modules/.bin/nx affected:apps",
+    "affected:build": "./node_modules/.bin/nx affected:build",
+    "affected:e2e": "./node_modules/.bin/nx affected:e2e",
+    "affected:dep-graph": "./node_modules/.bin/nx affected:dep-graph",
+    "format": "./node_modules/.bin/nx format:write",
+    "format:write": "./node_modules/.bin/nx format:write",
+    "format:check": "./node_modules/.bin/nx format:check",
     "update": "./node_modules/.bin/nx update",
-    "update:check": "./node_modules/.bin/nx update check",
-    "update:skip": "./node_modules/.bin/nx update skip",
+    "update:check": "./node_modules/.bin/nx update:check",
+    "update:skip": "./node_modules/.bin/nx update:skip",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "postinstall": "./node_modules/.bin/nx postinstall",
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "help": "./node_modules/.bin/nx help"
   },
   "private": true,
   "dependencies": {
@@ -84,12 +86,7 @@
     "webpack-bundle-analyzer": "^2.11.1"
   },
   "lint-staged": {
-    "*.ts": [
-      "tslint --project tsconfig.json --fix",
-      "git add"
-    ],
-    "*.{html,ts}": [
-      "ng build"
-    ]
+    "*.{ts,html,scss,json}": ["prettier --write", "git add"],
+    "*.{html,ts}": ["ng build"]
   }
 }
